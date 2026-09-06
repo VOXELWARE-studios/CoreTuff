@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug in CoreTuff
+description: Report a bug in CoreTuff CE or CoreTuff
 title: "[Bug]: "
 labels:
   - bug
@@ -8,13 +8,51 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report for CoreTuff!
+        Thanks for taking the time to report a bug in CoreTuff!
+
+        Please provide as much information as possible so we can reproduce and investigate the issue.
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: CoreTuff Edition
+      description: Which edition of CoreTuff are you using?
+      options:
+        - CoreTuff Community Edition (CE)
+        - CoreTuff Premium
+        - Other / Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Where does the issue occur?
+      options:
+        - Core
+        - Addon
+        - Dashboard
+        - Web Editor
+        - Integration
+        - Configuration
+        - Database
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: addon
+    attributes:
+      label: Addon Name
+      description: If this issue affects an addon, provide the addon name. Otherwise leave this blank.
+      placeholder: ExampleAddon
 
   - type: textarea
     id: bug
     attributes:
       label: Describe the bug
-      description: A clear and concise description of the issue.
+      description: Provide a clear and concise description of the issue.
       placeholder: Explain the bug here...
     validations:
       required: true
@@ -23,19 +61,30 @@ body:
     id: reproduce
     attributes:
       label: To Reproduce
-      description: Steps to reproduce this behaviour
+      description: Provide the steps required to reproduce the issue.
       placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. See error
+        1. Run '...'
+        2. Execute '...'
+        3. Do '...'
+        4. See the error
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: Expected behaviour
+      label: Expected Behaviour
       description: What should happen instead?
+      placeholder: Explain what you expected to happen...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behaviour
+      description: What actually happens?
+      placeholder: Explain what actually happens...
     validations:
       required: true
 
@@ -43,28 +92,23 @@ body:
     id: screenshots
     attributes:
       label: Screenshots / Videos
-      description: Add screenshots or videos if applicable.
+      description: Add screenshots or videos if they help demonstrate the issue.
+      placeholder: Drag and drop screenshots or videos here.
 
-  - type: dropdown
-    id: component
+  - type: textarea
+    id: logs
     attributes:
-      label: Core / Addon
-      options:
-        - Core
-        - Addon
-    validations:
-      required: true
-
-  - type: input
-    id: addon
-    attributes:
-      label: Addon Name
-      placeholder: ExampleAddon
+      label: Server Logs / Error
+      description: Include the relevant console error or stack trace if available.
+      placeholder: |
+        Paste the relevant logs here...
+      render: text
 
   - type: input
     id: version
     attributes:
       label: CoreTuff Version
+      description: What version of CoreTuff are you using?
       placeholder: 1.0.0
     validations:
       required: true
@@ -73,12 +117,41 @@ body:
     id: mcversion
     attributes:
       label: Minecraft Version
+      description: What Minecraft version is your server running?
       placeholder: 26.1.2
     validations:
       required: true
+
+  - type: dropdown
+    id: server
+    attributes:
+      label: Server Software
+      description: What server software are you using?
+      options:
+        - Paper
+        - Folia
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: java
+    attributes:
+      label: Java Version
+      description: What Java version is your server using?
+      placeholder: Java 25
+
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Relevant Configuration
+      description: If the issue is related to configuration, include the relevant configuration section. Remove any sensitive information.
+      placeholder: |
+        Paste relevant config.yml settings here...
 
   - type: textarea
     id: context
     attributes:
       label: Additional Context
-      description: Add any extra information here.
+      description: Add any other information that may help us investigate the issue.
+      placeholder: Anything else we should know?
