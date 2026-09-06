@@ -9,16 +9,32 @@ body:
     attributes:
       value: |
         # CoreTuff Suggestions
-        
+
         Thanks for helping improve CoreTuff!
-        
+
         You can use this page for:
         - Feature requests
         - Improvements
-        - Addon ideas
-        - UI suggestions
         - Optimization ideas
+        - Addon ideas
+        - UI/UX suggestions
+        - API suggestions
         - General feedback
+
+        Please provide as much detail as possible so the idea can be properly evaluated.
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: CoreTuff Edition
+      description: Which edition is this suggestion intended for?
+      options:
+        - CoreTuff Community Edition (CE)
+        - CoreTuff Premium
+        - Both CE & Premium
+        - Other / Unsure
+    validations:
+      required: true
 
   - type: dropdown
     id: type
@@ -32,6 +48,8 @@ body:
         - Addon Idea
         - UI/UX Suggestion
         - API Suggestion
+        - Configuration
+        - Integration
         - Other
     validations:
       required: true
@@ -39,11 +57,18 @@ body:
   - type: dropdown
     id: component
     attributes:
-      label: Core / Addon
+      label: Component
+      description: Which part of CoreTuff does this suggestion relate to?
       options:
         - Core
         - Addon
-        - Others
+        - Dashboard
+        - Web Editor
+        - API
+        - Integration
+        - Configuration
+        - Database
+        - Other
     validations:
       required: true
 
@@ -51,13 +76,13 @@ body:
     id: addon
     attributes:
       label: Addon Name
-      description: Fill this only if this suggestion is related to an addon.
+      description: Fill this only if the suggestion is related to a specific addon.
       placeholder: ExampleAddon
 
   - type: textarea
     id: description
     attributes:
-      label: Describe your suggestion
+      label: Describe Your Suggestion
       description: Explain your idea clearly and in detail.
       placeholder: |
         Example:
@@ -68,8 +93,8 @@ body:
   - type: textarea
     id: problem
     attributes:
-      label: Why is this needed?
-      description: What problem does this solve?
+      label: Why Is This Needed?
+      description: What problem would this solve, or what would it improve?
       placeholder: |
         Explain why this feature or improvement would be useful.
 
@@ -82,13 +107,25 @@ body:
         Describe how you imagine this feature functioning.
 
   - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Are there existing ways to accomplish this, or alternative approaches you considered?
+      placeholder: |
+        Describe any existing solutions or alternatives.
+
+  - type: textarea
     id: examples
     attributes:
       label: Examples / References
-      description: Reference plugins, screenshots, mockups, or examples if applicable.
+      description: Add reference plugins, screenshots, mockups, documentation, or other examples if applicable.
+      placeholder: |
+        Add links, screenshots, mockups, or examples here.
 
   - type: textarea
     id: additional
     attributes:
       label: Additional Context
       description: Add anything else related to this suggestion here.
+      placeholder: |
+        Anything else we should know?
